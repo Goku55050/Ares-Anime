@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body data-page="download">
+<body id="download" data-page="download">
   <div class="stars-bg"></div>
 
   <header class="main-header">
@@ -17,7 +17,12 @@
   <main class="main-content">
     <section class="download-info">
       <h1 id="download-title">Preparing Download…</h1>
-      <p id="download-meta"></p>
+      <p id="download-ep-info"></p>
+      <p>
+        Download will start in
+        <span id="download-count">10</span>
+        seconds…
+      </p>
     </section>
 
     <!-- ADS TOP -->
@@ -35,29 +40,22 @@
         </script>
         <script type="text/javascript" src="//www.highperformanceformat.com/1ca930ec4b20fce9334ce7973ff6dd40/invoke.js"></script>
       </div>
+    </section>
 
-      <div class="ad-block">
-        <!-- Native Ad -->
-        <script async="async" data-cfasync="false" src="//pl28156526.effectivegatecpm.com/9fdbf75c26ef51a2b19dbf748cf83bef/invoke.js"></script>
-        <div id="container-9fdbf75c26ef51a2b19dbf748cf83bef"></div>
+    <!-- BUTTON AREA (filled by JS after timer) -->
+    <section class="download-button-section">
+      <div id="download-button-container">
+        <!-- After 10 sec, script.js will inject <a href="episode.downloadUrl">Download Now</a> -->
       </div>
     </section>
 
-    <section class="download-timer-box">
-      <p class="count-text">Your download will be ready in</p>
-      <h2 id="countdown">10</h2>
-    </section>
-
-    <section class="download-button-section">
-      <a
-        id="real-download-link"
-        class="btn-primary big-download"
-        href="#"
-        style="opacity:0.4; pointer-events:none;"
-        target="_blank"
-      >
-        Download Now
-      </a>
+    <!-- ADS BOTTOM -->
+    <section class="ads-section">
+      <div class="ad-block">
+        <!-- Native Banner -->
+        <script async="async" data-cfasync="false" src="//pl28156526.effectivegatecpm.com/9fdbf75c26ef51a2b19dbf748cf83bef/invoke.js"></script>
+        <div id="container-9fdbf75c26ef51a2b19dbf748cf83bef"></div>
+      </div>
     </section>
   </main>
 
@@ -70,4 +68,4 @@
 
   <script src="script.js"></script>
 </body>
-        </html>
+</html>
