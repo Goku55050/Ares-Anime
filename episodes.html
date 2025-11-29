@@ -9,33 +9,41 @@
 <body data-page="episodes">
   <div class="stars-bg"></div>
 
-  <header class="site-header">
-    <div class="logo">Ares <span>Anime</span></div>
-    <nav>
-      <a href="index.html">Home</a>
+  <header class="main-header">
+    <div class="logo">Ares Anime</div>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
     </nav>
   </header>
 
-  <main class="content">
-    <section class="episodes-header">
-      <h1 id="animeTitle">Loading...</h1>
-      <p id="animeDescription"></p>
-
-      <div class="season-select">
-        <label for="seasonSelect">Season:</label>
-        <select id="seasonSelect"></select>
+  <main class="main-content">
+    <section class="anime-detail">
+      <div class="anime-detail-left">
+        <img id="anime-poster" src="" alt="Poster" class="detail-poster" />
+      </div>
+      <div class="anime-detail-right">
+        <h1 id="anime-title"></h1>
+        <p id="anime-meta" class="anime-meta"></p>
+        <p id="anime-desc" class="anime-desc"></p>
       </div>
     </section>
 
-    <section class="episodes-list">
-      <ul id="episodeList"></ul>
+    <section class="episodes-section">
+      <h2>Episodes (Hindi Dubbed)</h2>
+      <div id="episodes-container">
+        <!-- Filled by script.js -->
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p>Ares Anime does not host or upload any videos. We only index publicly available third-party streaming links. All videos are hosted on external servers.</p>
+  <footer class="main-footer">
+    <p>
+      Ares Anime does not host or upload any videos. We only index publicly
+      available third-party streaming links. All videos are hosted on external
+      servers.
+    </p>
   </footer>
 
   <script src="script.js"></script>
 </body>
-  </html>
+</html>
