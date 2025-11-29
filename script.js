@@ -22,7 +22,7 @@ const animeData = [
         name: "Season 1",
         totalEpisodes: 24,
         episodes: [
-          { number: 1,  name: "Episode 1",  streamUrl: "https://filemoon.sx/e/w489ph62gwkc", downloadUrl: "https://filemoon.to/download/w489ph62gwkc" },
+          { number: 1,  name: "Episode 1",  streamUrl: "https://filemoon.to/e/bjjruhasn8kb", downloadUrl: "https://filemoon.to/download/bjjruhasn8kb" },
           { number: 2,  name: "Episode 2",  streamUrl: "", downloadUrl: "" },
           { number: 3,  name: "Episode 3",  streamUrl: "", downloadUrl: "" },
           { number: 4,  name: "Episode 4",  streamUrl: "", downloadUrl: "" },
