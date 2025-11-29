@@ -17,22 +17,12 @@ body {
 .stars-bg {
   position: fixed;
   inset: 0;
+  z-index: -1;
   background:
-    radial-gradient(circle at 20% 20%, rgba(88, 101, 242, 0.35), transparent 55%),
-    radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.35), transparent 55%),
-    #050510;
-  pointer-events: none;
-  z-index: -2;
-}
-
-.stars-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(2px 2px at 10% 20%, #ffffff80, transparent),
-    radial-gradient(1px 1px at 30% 80%, #ffffff60, transparent),
-    radial-gradient(2px 2px at 70% 40%, #ffffff70, transparent),
+    radial-gradient(2px 2px at 20% 20%, #ffffff40, transparent),
+    radial-gradient(1px 1px at 80% 30%, #ffffff50, transparent),
+    radial-gradient(1px 1px at 10% 80%, #60a5fa60, transparent),
+    radial-gradient(2px 2px at 70% 90%, #a855f780, transparent),
     radial-gradient(1px 1px at 90% 10%, #ffffff50, transparent);
   animation: star-move 40s linear infinite;
   opacity: 0.8;
@@ -67,48 +57,45 @@ body {
 .nav {
   display: flex;
   gap: 10px;
-  align-items: center;
 }
 
 .nav-link {
   color: #e5e7eb;
   text-decoration: none;
   font-size: 0.95rem;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid transparent;
-  transition: 0.2s;
 }
 
 .nav-link:hover {
-  border-color: #60a5fa;
-  background: rgba(15, 23, 42, 0.7);
+  color: #93c5fd;
 }
 
 .main-content {
-  padding: 16px;
   max-width: 1100px;
-  margin: 0 auto 70px;
+  margin: 16px auto 32px;
+  padding: 0 12px;
 }
 
 .main-footer {
-  text-align: center;
   padding: 16px;
   font-size: 0.8rem;
   color: #9ca3af;
-  border-top: 1px solid rgba(148, 163, 184, 0.3);
   background: rgba(5, 5, 20, 0.95);
+  border-top: 1px solid rgba(31, 41, 55, 0.9);
+  text-align: center;
 }
 
 /* buttons */
+.btn,
 .btn-primary,
 .btn-secondary {
-  border: none;
   border-radius: 999px;
-  padding: 8px 16px;
-  font-size: 0.95rem;
+  padding: 8px 14px;
+  border: none;
   cursor: pointer;
-  transition: 0.2s;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -145,9 +132,9 @@ body {
   width: 100%;
   padding: 10px 14px;
   border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.7);
+  border: 1px solid rgba(55, 65, 81, 0.9);
   background: rgba(15, 23, 42, 0.9);
-  color: #f9fafb;
+  color: #e5e7eb;
   outline: none;
 }
 
@@ -162,19 +149,21 @@ body {
 
 .subtitle {
   margin-top: 0;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
   color: #9ca3af;
   font-size: 0.9rem;
 }
 
 .anime-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 14px;
 }
 
 .anime-card {
-  background: rgba(15, 23, 42, 0.9);
+  background: radial-gradient(circle at top, rgba(56, 189, 248, 0.12), transparent 55%),
+              radial-gradient(circle at bottom, rgba(168, 85, 247, 0.18), transparent 55%),
+              rgba(15, 23, 42, 0.9);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 0 18px rgba(15, 23, 42, 0.8);
@@ -200,17 +189,23 @@ body {
   padding: 10px 12px 12px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
 }
 
-.anime-info h3 {
+.anime-info h2 {
   margin: 0;
   font-size: 1rem;
 }
 
-.anime-tags {
-  font-size: 0.8rem;
+.anime-desc {
+  font-size: 0.82rem;
   color: #9ca3af;
+  margin: 0;
+}
+
+.anime-meta {
+  font-size: 0.8rem;
+  color: #a5b4fc;
 }
 
 /* episodes page */
@@ -233,39 +228,43 @@ body {
   object-fit: cover;
 }
 
-.anime-detail-right {
-  flex: 1;
-  min-width: 220px;
-}
-
-.anime-meta {
-  font-size: 0.9rem;
-  color: #9ca3af;
-}
-
-.anime-desc {
-  font-size: 0.95rem;
-  color: #e5e7eb;
-}
-
 .episodes-section h2 {
+  margin-top: 0;
   margin-bottom: 10px;
 }
 
-.episode-row {
+.episode-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 8px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(55, 65, 81, 0.9);
-  margin-bottom: 8px;
 }
 
-.episode-title {
-  font-size: 0.95rem;
+.episode-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 12px;
+  padding: 8px 10px;
+  border: 1px solid rgba(55, 65, 81, 0.9);
+}
+
+.episode-text {
+  display: flex;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+.episode-number {
+  color: #93c5fd;
+  font-weight: 600;
+}
+
+.episode-name {
+  color: #e5e7eb;
 }
 
 .episode-actions {
@@ -275,7 +274,11 @@ body {
 
 /* watch page */
 .watch-page h1 {
-  margin-bottom: 10px;
+  margin-bottom: 4px;
+}
+
+.watch-page .anime-meta {
+  margin-bottom: 8px;
 }
 
 .video-wrapper {
@@ -303,83 +306,62 @@ body {
   margin-left: auto;
 }
 
+/* ads */
 .ad-block {
   margin: 12px 0;
-  padding: 8px;
-  background: rgba(15, 23, 42, 0.9);
-  border-radius: 12px;
-  border: 1px dashed rgba(75, 85, 99, 0.9);
+  display: flex;
+  justify-content: center;
 }
 
 /* download page */
 .download-info h1 {
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
-.download-note {
-  color: #9ca3af;
-  font-size: 0.9rem;
+.download-button-section {
+  margin: 14px 0;
+  text-align: center;
 }
 
-.ads-section h2 {
-  font-size: 1rem;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
-.big-download {
-  margin-top: 14px;
-  padding: 10px 24px;
+.download-now-btn {
+  padding: 10px 16px;
 }
 
 /* admin page */
-.admin-page h1,
-.admin-page h2 {
-  margin-bottom: 8px;
+.admin-page {
+  max-width: 900px;
 }
 
-#admin-json {
+.admin-panel textarea {
   width: 100%;
-  min-height: 260px;
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 12px;
+  min-height: 280px;
+  margin: 10px 0;
+  border-radius: 10px;
   border: 1px solid rgba(55, 65, 81, 0.9);
   background: rgba(15, 23, 42, 0.95);
   color: #e5e7eb;
-  font-family: "JetBrains Mono", "Fira Code", monospace;
-  font-size: 0.86rem;
-  resize: vertical;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.82rem;
+  padding: 8px;
 }
 
 .admin-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 
 .file-label {
-  position: relative;
-  overflow: hidden;
-}
-
-.error-text {
-  color: #f97373;
-  font-size: 0.9rem;
+  cursor: pointer;
 }
 
 .hint-text {
-  margin-top: 8px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #9ca3af;
 }
 
-/* misc */
-.ad-block iframe {
-  max-width: 100%;
-}
-
+/* responsive */
 @media (max-width: 640px) {
   .anime-detail {
     flex-direction: column;
