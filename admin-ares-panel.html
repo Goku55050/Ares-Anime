@@ -14,45 +14,101 @@
   </header>
 
   <main class="main-content admin-page">
-    <section id="admin-panel" class="admin-panel">
-      <h2>Anime Data Editor (JSON)</h2>
-      <p>
-        This panel shows your current <strong>animeData</strong> as JSON.
-        You can edit/add anime, seasons, episodes, streaming links, download links here.<br />
-        When finished:
-      </p>
-      <ol>
-        <li>Click <strong>Download JSON</strong> to save <code>anime-data.json</code>.</li>
-        <li>Open that file on your PC/phone and copy JSON.</li>
-        <li>Paste into <code>script.js</code> replacing existing <code>animeData</code> value.</li>
-        <li>Commit + push to GitHub → Vercel will auto-deploy, and users will see updates.</li>
-      </ol>
+    <p class="admin-note">
+      Simple offline panel for your JSON anime data. This page does <strong>not</strong> directly change your live site –
+      it only helps you build the JSON you will copy into <code>script.js</code>.
+    </p>
 
-      <textarea id="admin-json" spellcheck="false"></textarea>
+    <section class="admin-login" id="admin-login">
+      <label for="admin-password">Password:</label>
+      <input id="admin-password" type="password" placeholder="Enter admin password" />
+      <button id="admin-login-btn" class="btn-primary">Unlock Panel</button>
+      <p class="subtitle">Default password: <code>Ares13579</code></p>
+    </section>
 
-      <div class="admin-buttons">
-        <button id="admin-load-json" class="btn-secondary">
-          Load from script.js
-        </button>
+    <section id="admin-main" class="admin-hidden">
+      <section class="form-grid">
+        <h2>Anime / Season / Episode Editor</h2>
 
-        <button id="admin-export-json" class="btn-primary">
-          Download JSON
-        </button>
+        <div class="form-row">
+          <label>Choose anime:</label>
+          <select id="anime-select"></select>
+          <button id="add-anime-btn" class="btn-secondary" type="button">+ Add new anime</button>
+        </div>
 
-        <label class="btn-secondary file-label">
-          Import JSON file
-          <input type="file" id="admin-import-file" accept="application/json" hidden />
-        </label>
+        <div class="form-row">
+          <label for="anime-id">Anime ID (short, no spaces)</label>
+          <input id="anime-id" />
+        </div>
 
-        <button id="admin-apply-import" class="btn-secondary">
-          Apply imported file to textarea
-        </button>
-      </div>
+        <div class="form-row">
+          <label for="anime-title">Anime title</label>
+          <input id="anime-title" />
+        </div>
 
-      <p class="hint-text">
-        Note: This admin panel does <strong>not</strong> directly change your live site.  
-        You must download JSON and update <code>script.js</code> in your repo.
-      </p>
+        <div class="form-row">
+          <label for="anime-poster">Poster URL</label>
+          <input id="anime-poster" />
+        </div>
+
+        <div class="form-row">
+          <label for="anime-desc">Short description</label>
+          <textarea id="anime-desc" rows="3"></textarea>
+        </div>
+
+        <hr style="border-color: rgba(55,65,81,0.8); margin: 12px 0;" />
+
+        <div class="form-row">
+          <label for="season-select">Season</label>
+          <select id="season-select"></select>
+          <button id="add-season-btn" class="btn-secondary" type="button">+ Add season</button>
+        </div>
+
+        <div class="form-row">
+          <label for="season-id">Season ID</label>
+          <input id="season-id" class="small-input" />
+          <label for="season-name">Season name</label>
+          <input id="season-name" />
+        </div>
+
+        <div class="form-row">
+          <label for="season-total">Total episodes (info only)</label>
+          <input id="season-total" type="number" class="small-input" />
+        </div>
+
+        <div class="form-row">
+          <label>Episodes</label>
+          <table id="episode-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Stream URL</th>
+                <th>Download URL</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="episode-tbody">
+              <!-- rows inserted by JS -->
+            </tbody>
+          </table>
+          <button id="add-episode-row-btn" class="btn-secondary" type="button">+ Add episode row</button>
+        </div>
+      </section>
+
+      <section style="margin-top: 18px;">
+        <h2>Generated animeData JSON</h2>
+        <textarea id="admin-json" spellcheck="false"></textarea>
+        <div class="admin-actions">
+          <button id="admin-refresh-json" class="btn-primary" type="button">Refresh JSON from form</button>
+          <button id="admin-download-json" class="btn-secondary" type="button">Download JSON file</button>
+        </div>
+
+        <p class="hint-text">
+          Tip: After editing, click <strong>Refresh JSON</strong>, then copy the JSON into <code>script.js</code>
+          replacing the existing <code>animeData</code> value, commit &amp; deploy.
+        </p>
+      </section>
     </section>
   </main>
 
@@ -62,4 +118,4 @@
 
   <script src="script.js"></script>
 </body>
-          </html>
+            </html>
