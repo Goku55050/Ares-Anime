@@ -2,39 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Watch – Ares Anime</title>
+  <title>Ares Anime – Watch</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body id="watch" data-page="watch">
-  <!-- WATERMARK SHOULD BE HERE -->
-  <div id="ares-watermark">Ares Anime</div>
-
   <div class="stars-bg"></div>
 
+  <!-- Watermark -->
+  <div id="ares-watermark">Ares Anime</div>
+
+  <!-- HEADER -->
   <header class="main-header">
     <div class="logo">Ares Anime</div>
     <nav class="nav">
       <a href="index.html" class="nav-link">Home</a>
+      <a href="analysis.html" class="nav-link">Analysis</a>
     </nav>
   </header>
 
+  <!-- MAIN CONTENT -->
   <main class="main-content watch-layout">
 
-    <!-- PLAYER -->
-    <iframe
-      id="video-player"
-      src=""
-      allowfullscreen
-      loading="lazy"
-      referrerpolicy="no-referrer"
-    ></iframe>
+    <!-- Title -->
+    <div class="watch-meta">
+      <h1 id="watch-title">Loading…</h1>
+      <p id="watch-subtitle"></p>
+    </div>
 
-    <!-- ADS UNDER PLAYER -->
-    <section class="ads-section">
+    <!-- TOP AD (728x90 REAL AD) -->
+    <div class="ads-section ads-top">
+      <div class="ad-block">
+        <script type="text/javascript">
+          atOptions = {
+            'key' : 'ff07e6c3c0cd0d14f3fe1e9a0c18d7ce',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+          };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/ff07e6c3c0cd0d14f3fe1e9a0c18d7ce/invoke.js"></script>
+      </div>
+    </div>
 
-      <!-- Banner Ad -->
+    <!-- SERVER & PLAYER -->
+    <div class="watch-controls">
+
+      <!-- SERVER BUTTONS -->
+      <div id="server-buttons" class="server-buttons">
+        <!-- Filled by script.js -->
+      </div>
+
+      <!-- PLAYER -->
+      <iframe
+        id="video-player"
+        src=""
+        allowfullscreen
+        frameborder="0"
+        loading="lazy"
+        referrerpolicy="no-referrer"
+      ></iframe>
+    </div>
+
+    <!-- MULTIPLE ADS BELOW PLAYER -->
+    <div class="ads-section">
+
+      <!-- AD 1 (300x250) -->
       <div class="ad-block">
         <script type="text/javascript">
           atOptions = {
@@ -45,59 +80,53 @@
             'params' : {}
           };
         </script>
-        <script
-          type="text/javascript"
-          src="//www.highperformanceformat.com/1ca930ec4b20fce9334ce7973ff6dd40/invoke.js"
-        ></script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/1ca930ec4b20fce9334ce7973ff6dd40/invoke.js"></script>
       </div>
 
-      <!-- Native Ad -->
+      <!-- AD 2 (POPUNDER HIGH PERFORMANCE) -->
       <div class="ad-block">
-        <script
-          async="async"
-          data-cfasync="false"
-          src="//pl28151872.profitablecpmratecpm.com/9fdbf75c26ef51a2b19dbf748cf83bef/invoke.js"
-        ></script>
-        <div id="container-9fdbf75c26ef51a2b19dbf748cf83bef"></div>
+        <script async="async" data-cfasync="false" src="//pl19760283.highperformanceformat.com/bfea8aa97ea58bdbdbf75c26ef51a2b19dbf748cf83bef/invoke.js"></script>
+        <div id="container-bfea8aa97ea58bdbdbf75c26ef51a2b19dbf748cf83bef"></div>
       </div>
 
-    </section>
+      <!-- AD 3 (Repeat for Profit) -->
+      <div class="ad-block">
+        <script type="text/javascript">
+          atOptions = {
+            'key' : '1ca930ec4b20fce9334ce7973ff6dd40',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
+          };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/1ca930ec4b20fce9334ce7973ff6dd40/invoke.js"></script>
+      </div>
 
-    <!-- Episode Meta -->
-    <div class="watch-meta">
-      <h1 id="watch-title">Loading…</h1>
-      <p id="watch-desc"></p>
     </div>
 
-    <!-- WATCH CONTROLS -->
-    <div class="watch-controls">
+    <!-- DOWNLOAD CTA -->
+    <a id="download-btn" href="#" class="btn-primary" style="margin-top: 14px; display: inline-block;">
+      Download Episode
+    </a>
 
-      <button id="download-btn" class="btn-primary">Download Episode</button>
-      <button id="open-externally-btn" class="btn-secondary">Open Player in New Tab</button>
-
-      <!-- NEW : SERVER SELECTOR -->
-      <label for="server-select" class="subtitle">Server:</label>
-      <select id="server-select">
-        <option value="filemoon">Filemoon (Main)</option>
-        <option value="streamgh">StreamGH (Backup)</option>
-      </select>
-
-      <span id="watch-note" class="subtitle">
-        All videos stream from third-party hosts (Filemoon, StreamGH etc.).
-        If audio has multiple tracks, use the player's audio selector inside the iframe.
-      </span>
-
+    <!-- DISCLAIMER -->
+    <div class="disclaimer-box" style="margin-top: 20px;">
+      <p>
+        Ares Anime does not store any files on its own server.<br>
+        We only index links from the internet hosted on third-party servers.<br>
+        We index links just like Google.<br><br>
+        © 2025 Ares Anime. All Rights Reserved.
+      </p>
     </div>
 
   </main>
 
+  <!-- FOOTER -->
   <footer class="main-footer">
-    <p>
-      Ares Anime does not host or upload any videos. We only index publicly
-      available third-party links.
-    </p>
+    <p>© 2025 Ares Anime</p>
   </footer>
 
   <script src="script.js"></script>
 </body>
-  </html>
+      </html>
