@@ -2,69 +2,108 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Download – Ares Anime</title>
+  <title>Ares Anime – Download</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body id="download" data-page="download">
   <div class="stars-bg"></div>
 
+  <!-- HEADER -->
   <header class="main-header">
     <div class="logo">Ares Anime</div>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
+    </nav>
   </header>
 
+  <!-- MAIN CONTENT -->
   <main class="main-content">
-    <section class="download-box">
-      <h1 id="dl-title">Preparing your download…</h1>
-      <p id="dl-desc" class="subtitle"></p>
-      <p id="dl-timer" class="subtitle"></p>
 
-      <!-- Ads on download page -->
-      <section class="ads-section">
-        <!-- Banner Ad -->
-        <div class="ad-block">
-          <script type="text/javascript">
-            atOptions = {
-              'key' : '1ca930ec4b20fce9334ce7973ff6dd40',
-              'format' : 'iframe',
-              'height' : 250,
-              'width' : 300,
-              'params' : {}
-            };
-          </script>
-          <script type="text/javascript" src="//www.highperformanceformat.com/1ca930ec4b20fce9334ce7973ff6dd40/invoke.js"></script>
-        </div>
+    <!-- ADS TOP -->
+    <section class="ads-section">
+      <!-- Banner Ad -->
+      <div class="ad-block">
+        <script type="text/javascript">
+          atOptions = {
+            'key' : '1ca930ec4b20fce9334ce7973ff6dd40',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
+          };
+        </script>
+        <script
+          type="text/javascript"
+          src="//www.highperformanceformat.com/1ca930ec4b20fce9334ce7973ff6dd40/invoke.js"
+        ></script>
+      </div>
 
-        <!-- Native Banner Ad -->
-        <div class="ad-block">
-          <script async="async" data-cfasync="false" src="//pl28156526.effectivegatecpm.com/9fdbf75c26ef51a2b19dbf748cf83bef/invoke.js"></script>
-          <div id="container-9fdbf75c26ef51a2b19dbf748cf83bef"></div>
-        </div>
-      </section>
-
-      <div class="watch-controls">
-        <a
-          id="dl-direct-link"
-          class="btn-primary"
-          href="#"
-          target="_blank"
-          rel="noopener"
-          style="display:none;"
-        >
-          Download Now
-        </a>
-        <a href="index.html" class="btn-secondary">Back to Home</a>
+      <!-- Native Ad -->
+      <div class="ad-block">
+        <script
+          async="async"
+          data-cfasync="false"
+          src="//pl28151872.profitablecpmratecpm.com/9fdbf75c26ef51a2b19dbf748cf83bef/invoke.js"
+        ></script>
+        <div id="container-9fdbf75c26ef51a2b19dbf748cf83bef"></div>
       </div>
     </section>
+
+    <h1 id="download-title" class="section-title">Download Ready</h1>
+
+    <!-- COUNTDOWN BOX -->
+    <div class="download-box">
+      <p class="subtitle">Your download will be ready in</p>
+
+      <h2 id="countdown" style="
+        font-size: 2.4rem;
+        text-align: center;
+        margin: 12px 0;
+        background: linear-gradient(90deg, #ff65c7, #4c5cff);
+        -webkit-background-clip: text;
+        color: transparent;
+      ">5</h2>
+
+      <a id="download-link" class="btn-primary" href="#" style="pointer-events:none;opacity:0.6;">
+        Please wait...
+      </a>
+    </div>
+
+    <p class="subtitle" style="margin-top: 20px;">
+      If the download doesn’t start, open the link in a new tab.
+    </p>
+
   </main>
 
+  <!-- FOOTER -->
   <footer class="main-footer">
-    <p>
-      Ares Anime does not host or upload any videos.
-      We only index publicly available third-party links.
-    </p>
+    <p>Ares Anime never hosts files. All downloads come from third-party hosts.</p>
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- COUNTDOWN SCRIPT -->
+  <script>
+    let timeLeft = 5;
+    const countdownEl = document.getElementById("countdown");
+    const dlBtn = document.getElementById("download-link");
+
+    const interval = setInterval(() => {
+      timeLeft--;
+      countdownEl.textContent = timeLeft;
+
+      if (timeLeft <= 0) {
+        clearInterval(interval);
+
+        countdownEl.textContent = "Ready!";
+        dlBtn.style.opacity = "1";
+        dlBtn.style.pointerEvents = "auto";
+        dlBtn.textContent = "Download Now";
+      }
+    }, 1000);
+  </script>
+
 </body>
-  </html>
+      </html>
