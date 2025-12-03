@@ -9,9 +9,8 @@
 
 <body id="browse" data-page="browse">
 
-  <!-- Galaxy BG -->
-  <div class="stars"></div>
-  <div class="stars2"></div>
+  <!-- Galaxy Background -->
+  <div class="stars-bg"></div>
 
   <!-- HEADER -->
   <header class="main-header">
@@ -22,35 +21,35 @@
 
     <nav class="nav">
       <a href="index.html" class="nav-link">Home</a>
-      <a href="browse.html" class="nav-link is-active">Browse</a>
+      <a href="browse.html" class="nav-link active">Browse</a>
     </nav>
   </header>
 
   <!-- MAIN -->
   <main class="main-content">
 
-    <!-- SEARCH -->
+    <!-- SEARCH BAR -->
     <section class="home-search">
       <div class="home-search-inner">
         <input
-          type="text"
           id="browse-search-input"
           class="home-search-input"
+          type="text"
           placeholder="Search anime…"
           autocomplete="off"
         />
       </div>
     </section>
 
-    <!-- ANIME GRID -->
+    <!-- BROWSE GRID -->
     <section class="browse-section">
-      <h2 style="padding-left: 30px; margin-top: 20px;">All Anime</h2>
+      <h2 class="section-title" style="padding-left: 25px;">All Anime</h2>
 
-      <div class="browse-grid" id="browse-list">
+      <div id="browse-list" class="browse-grid">
         <!-- Cards inserted by script.js -->
       </div>
-
     </section>
+
   </main>
 
   <!-- FOOTER -->
