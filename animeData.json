@@ -30,5 +30,27 @@
         ]
       }
     ]
+  },
+  {
+    "id": "cm",
+    "title": "Chainshow man",
+    "poster": "https://i.postimg.cc/k4MYByX1/MV5BZGY2ZTM2MWMt-Nz-A2OS00Zj-Jl-LWIw-ZTMt-MDBh-N2Ew-Yj-Zj-Zj-Ey-Xk-Ey-Xk-Fqc-Gc-V1-FMjpg-UX1000.jpg",
+    "description": "Denji",
+    "popularity": 0,
+    "trending": 0,
+    "updated": 1764763913717,
+    "seasons": [
+      {
+        "name": "Season 1",
+        "episodes": [
+          {
+            "number": 1,
+            "title": "Denjis",
+            "stream_servers": [],
+            "download_servers": []
+          }
+        ]
+      }
+    ]
   }
 ]
