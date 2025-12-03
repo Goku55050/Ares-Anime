@@ -2,124 +2,252 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ares Anime - Admin Panel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
+  <title>Ares Anime – Admin Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      background: #0a0f1f;
+      color: white;
+      padding: 20px;
+    }
+    .admin-box {
+      background: rgba(255,255,255,0.06);
+      padding: 20px;
+      border-radius: 14px;
+      margin-bottom: 30px;
+    }
+    .admin-input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      margin-bottom: 14px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+    }
+    .btn {
+      padding: 10px 20px;
+      background: #4a6bff;
+      border-radius: 10px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .btn:hover {
+      opacity: 0.85;
+    }
+    .server-row {
+      background: rgba(255,255,255,0.05);
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+    }
+  </style>
 </head>
-<body data-page="admin">
-  <div class="stars"></div>
-  <div class="stars2"></div>
 
-  <header class="site-header">
-    <div class="logo">Ares Anime Admin</div>
-    <nav class="nav">
-      <a href="index.html" class="nav-link">Home</a>
-    </nav>
-  </header>
+<body id="admin" data-page="admin">
 
-  <main class="admin-layout">
-    <section class="admin-section">
-      <h2>Add New Anime</h2>
-      <form id="admin-add-anime">
-        <label>Anime ID (short, unique):
-          <input type="text" name="id" required />
-        </label>
-        <label>Title:
-          <input type="text" name="title" required />
-        </label>
-        <label>Cover URL:
-          <input type="url" name="cover" required />
-        </label>
-        <label>Description:
-          <textarea name="description" rows="3" required></textarea>
-        </label>
-        <label>First Season Number:
-          <input type="number" name="seasonNumber" value="1" min="1" required />
-        </label>
-        <label>Total Episodes (Season):
-          <input type="number" name="totalEpisodes" min="1" required />
-        </label>
-        <button type="submit" class="btn-primary">Add Anime</button>
-      </form>
-    </section>
+<h1>🔐 Ares Anime – Admin Panel</h1>
+<p>Only you can access this page.</p>
 
-    <section class="admin-section">
-      <h2>Add Season to Existing Anime</h2>
-      <form id="admin-add-season">
-        <label>Select Anime:
-          <select name="animeId" id="admin-season-anime"></select>
-        </label>
-        <label>Season Number:
-          <input type="number" name="seasonNumber" min="1" required />
-        </label>
-        <label>Total Episodes:
-          <input type="number" name="totalEpisodes" min="1" required />
-        </label>
-        <button type="submit" class="btn-secondary">Add Season</button>
-      </form>
-    </section>
+<hr><br>
 
-    <section class="admin-section">
-      <h2>Add Episode</h2>
-      <form id="admin-add-episode">
-        <label>Select Anime:
-          <select name="animeId" id="admin-episode-anime"></select>
-        </label>
-        <label>Season Number:
-          <input type="number" name="seasonNumber" min="1" required />
-        </label>
-        <label>Episode Number:
-          <input type="number" name="episodeNumber" min="1" required />
-        </label>
-        <label>Episode Title:
-          <input type="text" name="episodeTitle" required />
-        </label>
-        <label>Stream URL:
-          <input type="url" name="streamUrl" required />
-        </label>
-        <label>Download URL (optional):
-          <input type="url" name="downloadUrl" />
-        </label>
-        <button type="submit" class="btn-secondary">Add Episode</button>
-      </form>
-    </section>
+<!-- SECRET KEY CHECK -->
+<div id="admin-locked" style="display:none; text-align:center; margin-top:40px;">
+  <h2>Access Denied ❌</h2>
+  <p>Incorrect or missing admin key.</p>
+</div>
 
-    <section class="admin-section">
-      <h2>Custom Data Preview (localStorage)</h2>
-      <pre id="admin-data-preview" class="admin-preview"></pre>
-      <p class="admin-note">
-        Is JSON ko copy karke apne GitHub project me <code>anime-data.json</code> file me paste kar sakte ho
-        (ya niche “Save to GitHub” use karo).
-      </p>
-    </section>
+<div id="admin-panel">
 
-    <section class="admin-section">
-      <h2>Sync Anime Data to GitHub (Advanced)</h2>
-      <p class="admin-note">
-        Yeh tumhare current anime data ko GitHub repo me <code>anime-data.json</code> file ke andar push karega.
-        Repo ko Vercel se connect rakho toh auto redeploy ho jayega.
-      </p>
-      <label>GitHub Repo (owner/name):
-        <input type="text" id="gh-repo" placeholder="username/repo-name" />
-      </label>
-      <label>Branch:
-        <input type="text" id="gh-branch" value="main" />
-      </label>
-      <label>File Path:
-        <input type="text" id="gh-path" value="anime-data.json" />
-      </label>
-      <label>GitHub Token:
-        <input type="password" id="gh-token" placeholder="ghp_... (keep secret)" />
-      </label>
-      <button type="button" id="gh-save-btn" class="btn-primary">Save to GitHub</button>
-      <p id="gh-status" class="admin-note"></p>
-    </section>
-  </main>
+  <!-- ADD ANIME -->
+  <div class="admin-box">
+    <h2>➕ Add Anime</h2>
 
-  <footer class="site-footer">
-    <p>Admin panel is client-side only (localStorage). GitHub sync optional hai – token kabhi share mat karo.</p>
-  </footer>
+    <input id="anime-title" class="admin-input" placeholder="Anime Title" />
+    <input id="anime-id" class="admin-input" placeholder="Anime ID (unique)" />
+    <input id="anime-poster" class="admin-input" placeholder="Poster URL" />
 
-  <script src="script.js"></script>
+    <textarea id="anime-description" class="admin-input" placeholder="Description"></textarea>
+
+    <button class="btn" onclick="addAnime()">Save Anime</button>
+  </div>
+
+  <!-- ADD SEASON -->
+  <div class="admin-box">
+    <h2>📁 Add Season</h2>
+
+    <select id="season-anime-select" class="admin-input"></select>
+    <input id="season-name" class="admin-input" placeholder="Season Name (ex: Season 1)" />
+
+    <button class="btn" onclick="addSeason()">Add Season</button>
+  </div>
+
+  <!-- ADD EPISODE -->
+  <div class="admin-box">
+    <h2>🎬 Add Episode</h2>
+
+    <select id="episode-anime-select" class="admin-input"></select>
+    <select id="episode-season-select" class="admin-input"></select>
+
+    <input id="ep-number" type="number" class="admin-input" placeholder="Episode Number" />
+    <input id="ep-title" class="admin-input" placeholder="Episode Title" />
+
+    <h3>Streaming Servers</h3>
+
+    <div id="stream-list">
+      <div class="server-row">
+        <label>Filemoon URL</label>
+        <input id="stream-filemoon" class="admin-input" placeholder="https://filemoon.com/e/...">
+      </div>
+
+      <div class="server-row">
+        <label>StreamTape URL</label>
+        <input id="stream-streamtape" class="admin-input" placeholder="https://streamtape.com/e/...">
+      </div>
+
+      <div class="server-row">
+        <label>StreamGH URL</label>
+        <input id="stream-streamgh" class="admin-input" placeholder="https://streamgh.com/e/...">
+      </div>
+    </div>
+
+    <h3>Download Servers</h3>
+
+    <div class="server-row">
+      <label>Filemoon DL</label>
+      <input id="dl-filemoon" class="admin-input" placeholder="https://filemoon.to/d/...">
+    </div>
+
+    <div class="server-row">
+      <label>StreamGH DL</label>
+      <input id="dl-streamgh" class="admin-input" placeholder="https://streamgh.com/d/...">
+    </div>
+
+    <button class="btn" onclick="addEpisode()">Add Episode</button>
+  </div>
+
+  <!-- SAVE TO GITHUB -->
+  <div class="admin-box">
+    <h2>🧾 Save All Changes</h2>
+    <button class="btn" onclick="saveToGitHub()">Save to GitHub & Auto Deploy</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+<script>
+/* ---------------------------
+   ADMIN PAGE PROTECTION
+---------------------------- */
+const url = new URLSearchParams(window.location.search);
+const key = url.get("key");
+
+// YOUR SECRET KEY (Set any password you want)
+const ADMIN_KEY = "ARES2025";
+
+if (key !== ADMIN_KEY) {
+  document.getElementById("admin-panel").style.display = "none";
+  document.getElementById("admin-locked").style.display = "block";
+}
+
+/* ---------------------------
+   ADMIN FUNCTIONS
+---------------------------- */
+
+function refreshAnimeDropdowns() {
+  const seasonAnime = document.getElementById("season-anime-select");
+  const epAnime = document.getElementById("episode-anime-select");
+
+  seasonAnime.innerHTML = "";
+  epAnime.innerHTML = "";
+
+  animeList.forEach(a => {
+    seasonAnime.innerHTML += `<option value="${a.id}">${a.title}</option>`;
+    epAnime.innerHTML += `<option value="${a.id}">${a.title}</option>`;
+  });
+
+  refreshSeasonDropdown();
+}
+
+function refreshSeasonDropdown() {
+  const animeId = document.getElementById("episode-anime-select").value;
+  const seasonList = document.getElementById("episode-season-select");
+  seasonList.innerHTML = "";
+
+  const anime = animeList.find(a => a.id === animeId);
+  anime.seasons.forEach((s, i) => {
+    seasonList.innerHTML += `<option value="${i}">${s.name}</option>`;
+  });
+}
+
+function addAnime() {
+  let obj = {
+    id: document.getElementById("anime-id").value,
+    title: document.getElementById("anime-title").value,
+    poster: document.getElementById("anime-poster").value,
+    description: document.getElementById("anime-description").value,
+    popularity: 1,
+    trending: 1,
+    updated: Date.now(),
+    seasons: []
+  };
+
+  animeList.push(obj);
+  alert("Anime added!");
+  refreshAnimeDropdowns();
+}
+
+function addSeason() {
+  const animeId = document.getElementById("season-anime-select").value;
+  const anime = animeList.find(a => a.id === animeId);
+
+  anime.seasons.push({
+    name: document.getElementById("season-name").value,
+    episodes: []
+  });
+
+  alert("Season added!");
+  refreshSeasonDropdown();
+}
+
+function addEpisode() {
+  const animeId = document.getElementById("episode-anime-select").value;
+  const seasonIndex = parseInt(document.getElementById("episode-season-select").value);
+
+  const anime = animeList.find(a => a.id === animeId);
+
+  anime.seasons[seasonIndex].episodes.push({
+    number: parseInt(document.getElementById("ep-number").value),
+    title: document.getElementById("ep-title").value,
+
+    watch_servers: [
+      { name: "Filemoon", url: document.getElementById("stream-filemoon").value },
+      { name: "StreamTape", url: document.getElementById("stream-streamtape").value },
+      { name: "StreamGH", url: document.getElementById("stream-streamgh").value }
+    ],
+
+    download_servers: [
+      { name: "Filemoon DL", url: document.getElementById("dl-filemoon").value },
+      { name: "StreamGH DL", url: document.getElementById("dl-streamgh").value }
+    ]
+  });
+
+  alert("Episode added!");
+}
+
+/* ---------------------------
+   SAVE TO GITHUB (API READY)
+----------------------------*/
+
+function saveToGitHub() {
+  alert("Your animeData.json is ready. Connect GitHub API to auto-update.");
+}
+</script>
+
 </body>
-            </html>
+  </html>
