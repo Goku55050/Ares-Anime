@@ -1,104 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Ares Anime – Home</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ares Anime</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body id="home" data-page="home">
+  <body id="home" data-page="home">
+    <div class="stars-bg"></div>
+    <div id="ares-watermark">Ares Anime</div>
 
-  <!-- Galaxy Background -->
-  <div class="stars"></div>
-  <div class="stars2"></div>
-
-  <!-- HEADER -->
-  <header class="main-header">
-    <div class="logo">
-      <span class="logo-top">Ares</span>
-      <span class="logo-bottom">Anime</span>
-    </div>
-
-    <nav class="nav">
-      <a href="index.html" class="nav-link is-active">Home</a>
-      <a href="browse.html" class="nav-link">Browse</a>
-      <!-- ADMIN HIDDEN (only you can access manually) -->
-    </nav>
-  </header>
-
-  <!-- MAIN CONTENT -->
-  <main class="main-content">
+    <!-- HEADER -->
+    <header class="main-header">
+      <div class="logo">
+        <span class="logo-top">Ares</span>
+        <span class="logo-bottom">Anime</span>
+      </div>
+      <nav class="nav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="browse.html" class="nav-link">Browse</a>
+      </nav>
+    </header>
 
     <!-- HERO BANNER -->
-    <section id="hero-banner" class="hero-banner">
-      <!-- Filled via script.js -->
-    </section>
-
-    <!-- HOME SEARCH BAR -->
-    <section class="home-search">
-      <div class="home-search-inner">
-        <input
-          type="text"
-          id="home-search-input"
-          class="home-search-input"
-          placeholder="Search anime…"
-          autocomplete="off"
-        />
-      </div>
-    </section>
-
-    <!-- HOME SECTIONS -->
-    <section class="home-sections">
-
-      <!-- LATEST -->
-      <div class="home-section-block">
-        <div class="section-header">
-          <h2>Latest</h2>
+    <main class="main-content">
+      <section class="hero-banner">
+        <div class="hero-overlay"></div>
+        <div class="hero-bg">
+          <img id="hero-poster" src="" alt="Poster" />
         </div>
-        <div class="card-row" id="latest-row"></div>
-      </div>
-
-      <!-- POPULAR -->
-      <div class="home-section-block">
-        <div class="section-header">
-          <h2>Popular</h2>
+        <div class="hero-content">
+          <div class="hero-tag-pill" id="hero-tags">Loading…</div>
+          <h1 id="hero-title">Loading…</h1>
+          <p id="hero-subtitle"></p>
+          <button id="hero-watch-btn" class="btn-primary">
+            Watch Now
+          </button>
         </div>
-        <div class="card-row" id="popular-row"></div>
-      </div>
+      </section>
 
-      <!-- TRENDING -->
-      <div class="home-section-block">
-        <div class="section-header">
-          <h2>Trending</h2>
+      <!-- HOME SECTIONS -->
+      <section class="home-sections">
+        <div class="home-section">
+          <h2 class="section-title">Latest</h2>
+          <div id="latest-row" class="card-row"></div>
         </div>
-        <div class="card-row" id="trending-row"></div>
-      </div>
 
-    </section>
+        <div class="home-section">
+          <h2 class="section-title">Popular</h2>
+          <div id="popular-row" class="card-row"></div>
+        </div>
 
-    <!-- DISCLAIMER -->
-    <section class="disclaimer-section">
-      <div class="disclaimer-card">
-        <h3>Disclaimer</h3>
-        <p>
-          Ares Anime does not store any files on its own server. <br />
-          We only index links from the internet hosted on third-party servers. <br />
-          We index links just like Google.
-        </p>
-        <p class="disclaimer-copy">
-          © 2025 Ares Anime. All Rights Reserved.
-        </p>
-      </div>
-    </section>
+        <div class="home-section">
+          <h2 class="section-title">Trending</h2>
+          <div id="trending-row" class="card-row"></div>
+        </div>
+      </section>
 
-  </main>
+      <!-- DISCLAIMER -->
+      <section class="disclaimer-wrapper">
+        <div class="disclaimer-box gradient-card">
+          <h3>Disclaimer</h3>
+          <p>
+            Ares Anime does not store any files on its own server.<br />
+            We only index links from the internet hosted on third-party
+            servers.<br />
+            We index links just like Google.
+          </p>
+        </div>
+      </section>
+    </main>
 
-  <!-- FOOTER -->
-  <footer class="main-footer">
-    <p>© 2025 Ares Anime</p>
-  </footer>
+    <!-- FOOTER -->
+    <footer class="main-footer">
+      <p>© 2025 Ares Anime. All Rights Reserved.</p>
+    </footer>
 
-  <script src="script.js"></script>
-</body>
-          </html>
+    <script src="script.js"></script>
+  </body>
+</html>
