@@ -1,226 +1,128 @@
 [
   {
-    "id": "Jjk",
-    "name": "Jujutsu kaisen",
+    "id": "jujutsu-kaisen",
+    "title": "Jujutsu Kaisen",
     "poster": "https://i.postimg.cc/zBSSkFsD/818DUzqnw-ES.jpg",
-    "description": "Jjk",
-    "episodes": [
+    "description": "Yuji Itadori joins Tokyo Jujutsu High to fight curses and uncover ancient sorcery mysteries.",
+    "popularity": 95,
+    "trending": 90,
+    "updated": 1735800000,
+
+    "seasons": [
       {
-        "number": 1,
-        "title": "Ryomen Sukuna",
-        "streamUrl": "https://hglink.to/e/zabiengnlhza",
-        "downloadUrl": "https://hglink.to/download/zabiengnlhza"
-      },
+        "name": "Season 1",
+        "episodes": [
+          {
+            "number": 1,
+            "title": "Ryomen Sukuna",
+
+            "watch_servers": [
+              {
+                "name": "Filemoon",
+                "url": "https://filemoon.to/e/abcd1234"
+              },
+              {
+                "name": "StreamTape",
+                "url": "https://streamtape.com/e/xyz111"
+              },
+              {
+                "name": "StreamGH",
+                "url": "https://hglink.to/e/zabiengnlhza"
+              }
+            ],
+
+            "download_servers": [
+              {
+                "name": "Filemoon DL",
+                "url": "https://filemoon.to/d/abcd1234"
+              },
+              {
+                "name": "StreamGH DL",
+                "url": "https://hglink.to/download/zabiengnlhza"
+              }
+            ]
+          },
+
+          {
+            "number": 2,
+            "title": "For Myself",
+
+            "watch_servers": [
+              {
+                "name": "Filemoon",
+                "url": "https://filemoon.to/e/ep2abc"
+              },
+              {
+                "name": "StreamTape",
+                "url": "https://streamtape.com/e/xy22"
+              },
+              {
+                "name": "StreamGH",
+                "url": "https://streamgh.com/e/episode2"
+              }
+            ],
+
+            "download_servers": [
+              {
+                "name": "Filemoon DL",
+                "url": "https://filemoon.to/d/ep2abc"
+              },
+              {
+                "name": "StreamGH DL",
+                "url": "https://streamgh.com/d/episode2"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "id": "chainsaw-man",
+    "title": "Chainsaw Man",
+    "poster": "https://i.postimg.cc/k4MYByX1/MV5BZGY2ZTM2MWMt-Nz-A2OS00Zj-Jl-LWIw-ZTMt-MDBh-N2Ew-Yj-Zj-Zj-Ey-Xk-Ey-Xk-Fqc-Gc-V1-FMjpg-UX1000.jpg",
+    "description": "Denji becomes Chainsaw Man after making contract with devil dog Pochita.",
+    "popularity": 88,
+    "trending": 80,
+    "updated": 1735700000,
+
+    "seasons": [
       {
-        "number": 2,
-        "title": "Episode 2",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 3,
-        "title": "Episode 3",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 4,
-        "title": "Episode 4",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 5,
-        "title": "Episode 5",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 6,
-        "title": "Episode 6",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 7,
-        "title": "Episode 7",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 8,
-        "title": "Episode 8",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 9,
-        "title": "Episode 9",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 10,
-        "title": "Episode 10",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 11,
-        "title": "Episode 11",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 12,
-        "title": "Episode 12",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 13,
-        "title": "Episode 13",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 14,
-        "title": "Episode 14",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 15,
-        "title": "Episode 15",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 16,
-        "title": "Episode 16",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 17,
-        "title": "Episode 17",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 18,
-        "title": "Episode 18",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 19,
-        "title": "Episode 19",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 20,
-        "title": "Episode 20",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 21,
-        "title": "Episode 21",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 22,
-        "title": "Episode 22",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 23,
-        "title": "Episode 23",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 24,
-        "title": "Episode 24",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 25,
-        "title": "Episode 25",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 26,
-        "title": "Episode 26",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 27,
-        "title": "Episode 27",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 28,
-        "title": "Episode 28",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 29,
-        "title": "Episode 29",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 30,
-        "title": "Episode 30",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 31,
-        "title": "Episode 31",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 32,
-        "title": "Episode 32",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 33,
-        "title": "Episode 33",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 34,
-        "title": "Episode 34",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 35,
-        "title": "Episode 35",
-        "streamUrl": "",
-        "downloadUrl": ""
-      },
-      {
-        "number": 36,
-        "title": "Episode 36",
-        "streamUrl": "",
-        "downloadUrl": ""
+        "name": "Season 1",
+        "episodes": [
+          {
+            "number": 1,
+            "title": "Dog & Chainsaw",
+
+            "watch_servers": [
+              {
+                "name": "Filemoon",
+                "url": "https://filemoon.to/e/ep1cm"
+              },
+              {
+                "name": "StreamTape",
+                "url": "https://streamtape.com/e/cm11"
+              },
+              {
+                "name": "StreamGH",
+                "url": "https://streamgh.com/e/cm1"
+              }
+            ],
+
+            "download_servers": [
+              {
+                "name": "Filemoon DL",
+                "url": "https://filemoon.to/d/ep1cm"
+              },
+              {
+                "name": "StreamGH DL",
+                "url": "https://streamgh.com/d/cm1"
+              }
+            ]
+          }
+        ]
       }
     ]
   }
-]
+            ]
