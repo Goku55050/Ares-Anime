@@ -1,44 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ares Anime</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ares Anime</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header class="navbar">
-  <h1 class="logo">Ares<br><span>Anime</span></h1>
-  <nav>
-    <a href="index.html" class="active">Home</a>
-    <a href="browse.html">Browse</a>
-  </nav>
+<header class="main-header">
+    <div class="logo">Ares<br><span>Anime</span></div>
+
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="browse.html">Browse</a>
+    </nav>
 </header>
 
-<!-- 🔥 HERO SWIPE SLIDER -->
-<section class="hero" id="heroSlider">
-  <div class="hero-track" id="heroTrack">
-    <!-- Slides inserted by JS -->
-  </div>
+<!-- HERO SLIDER CONTAINER -->
+<section class="hero-slider" id="heroSlider">
+    <div class="hero-track" id="heroTrack">
+        <!-- Slides dynamically injected from script.js -->
+    </div>
+
+    <!-- Slider Controls -->
+    <button class="hero-btn left" id="heroPrev">&#10094;</button>
+    <button class="hero-btn right" id="heroNext">&#10095;</button>
 </section>
 
-<h2 class="section-title">Latest</h2>
-<div class="anime-row" id="latestRow"></div>
+<!-- LATEST SECTION -->
+<section class="section-block">
+    <h2 class="section-title">Latest</h2>
+    <div class="anime-row" id="latestContainer"></div>
+</section>
 
-<h2 class="section-title">Popular</h2>
-<div class="anime-row" id="popularRow"></div>
+<!-- POPULAR SECTION -->
+<section class="section-block">
+    <h2 class="section-title">Popular</h2>
+    <div class="anime-row" id="popularContainer"></div>
+</section>
 
-<h2 class="section-title">Trending</h2>
-<div class="anime-row" id="trendingRow"></div>
+<!-- TRENDING SECTION -->
+<section class="section-block">
+    <h2 class="section-title">Trending</h2>
+    <div class="anime-row" id="trendingContainer"></div>
+</section>
 
+<!-- DISCLAIMER -->
 <footer class="footer">
-  <h3>Disclaimer</h3>
-  <p>Ares Anime does not store any files on its servers.</p>
-  <p>We only index public links like a search engine.</p>
-  <p>© 2025 Ares Anime</p>
+    <h3>Disclaimer</h3>
+    <p>Ares Anime does not store any files on its own server.<br>
+    We only index links from the Internet hosted on third-party servers.<br>
+    We index links just like Google.</p>
+
+    <p class="copy">© 2025 Ares Anime. All Rights Reserved.</p>
 </footer>
 
 <script src="script.js"></script>
 </body>
-</html>
+  </html>
