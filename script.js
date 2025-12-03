@@ -1,59 +1,85 @@
-/* ----------------------------------------------------
-   LOAD ANIME DATABASE
----------------------------------------------------- */
+/* ===========================================================
+   LOAD ANIME DATA
+   =========================================================== */
 let animeList = [];
 
 async function loadAnimeData() {
   try {
-    const res = await fetch("./animeData.json?nocache=" + Date.now());
+    const res = await fetch("animeData.json?nocache=" + Date.now());
     animeList = await res.json();
-
-    initHomePage();
-    initBrowsePage();
-    initEpisodesPage();
-    initWatchPage();
-    initDownloadPage();
-    initAdminPage();
+    initPage();
   } catch (err) {
-    console.error("Anime data load error:", err);
+    console.error("Error loading animeData.json:", err);
   }
 }
 
+/* Start loading immediately */
 loadAnimeData();
 
-/* ----------------------------------------------------
+/* ===========================================================
+   PAGE ROUTER
+   =========================================================== */
+function initPage() {
+  const page = document.body.dataset.page;
+
+  switch (page) {
+    case "home": initHomePage(); break;
+    case "browse": initBrowsePage(); break;
+    case "episodes": initEpisodesPage(); break;
+    case "watch": initWatchPage(); break;
+    case "download": initDownloadPage(); break;
+    case "admin": initAdminPage(); break;
+  }
+}
+
+/* ===========================================================
    HOME PAGE (index.html)
----------------------------------------------------- */
+   =========================================================== */
 function initHomePage() {
-  if (!document.body.id === "home") return;
+  if (!animeList.length) return;
 
-  const search = document.getElementById("home-search-input");
-  search.addEventListener("input", () => filterHome(search.value.toLowerCase()));
+  // HERO
+  renderHeroBanner();
 
-  renderHomeSections(animeList);
-  loadHeroBanner();
+  // SECTIONS
+  renderHomeSections();
 }
 
-function filterHome(q) {
-  const filtered = animeList.filter(a =>
-    a.title.toLowerCase().includes(q)
-  );
-  renderHomeSections(filtered);
+function renderHeroBanner() {
+  const heroTitle = document.getElementById("hero-title");
+  const heroSubtitle = document.getElementById("hero-subtitle");
+  const heroTags = document.getElementById("hero-tags");
+  const heroPoster = document.getElementById("hero-poster");
+  const heroBtn = document.getElementById("hero-watch-btn");
+
+  // Most popular anime
+  const heroAnime = [...animeList].sort((a, b) => b.popularity - a.popularity)[0];
+  if (!heroAnime) return;
+
+  heroTitle.textContent = heroAnime.title;
+  heroSubtitle.textContent = heroAnime.description || "";
+  heroPoster.src = heroAnime.poster || "";
+  heroTags.textContent = "Hindi Dub • Updated";
+
+  heroBtn.onclick = () => {
+    location.href = `episodes.html?id=${heroAnime.id}`;
+  };
 }
 
-function renderHomeSections(list) {
-  renderSection("latest-row", [...list].sort((a, b) => b.updated - a.updated));
-  renderSection("popular-row", [...list].sort((a, b) => b.popularity - a.popularity));
-  renderSection("trending-row", [...list].sort((a, b) => b.trending - a.trending));
+function renderHomeSections() {
+  renderHomeRow("latest-row", [...animeList].sort((a, b) => b.updated - a.updated));
+  renderHomeRow("popular-row", [...animeList].sort((a, b) => b.popularity - a.popularity));
+  renderHomeRow("trending-row", [...animeList].sort((a, b) => b.trending - a.trending));
 }
 
-function renderSection(id, items) {
-  const box = document.getElementById(id);
-  if (!box) return;
-  box.innerHTML = "";
+function renderHomeRow(id, list) {
+  const row = document.getElementById(id);
+  if (!row) return;
 
-  items.forEach(a => {
-    box.innerHTML += `
+  row.innerHTML = "";
+
+  list.forEach(a => {
+    row.innerHTML += `
       <div class="anime-card" onclick="location.href='episodes.html?id=${a.id}'">
         <img src="${a.poster}">
         <div class="card-title">${a.title}</div>
@@ -62,244 +88,389 @@ function renderSection(id, items) {
   });
 }
 
-/* ----------------------------------------------------
-   HERO BANNER
----------------------------------------------------- */
-function loadHeroBanner() {
-  const hero = document.getElementById("hero-banner");
-  if (!hero) return;
-
-  const topAnime = [...animeList].sort((a, b) => b.popularity - a.popularity)[0];
-
-  hero.innerHTML = `
-    <div class="hero-inner">
-      <div class="hero-text">
-        <div class="hero-pill">Hindi Dub • Updated</div>
-        <h1 class="hero-title">${topAnime.title}</h1>
-        <p class="hero-description">${topAnime.description}</p>
-        <button class="btn-primary hero-btn"
-          onclick="location.href='episodes.html?id=${topAnime.id}'">
-          Watch Now
-        </button>
-      </div>
-      <img src="${topAnime.poster}" class="hero-poster">
-    </div>
-  `;
-}
-
-/* ----------------------------------------------------
+/* ===========================================================
    BROWSE PAGE (browse.html)
----------------------------------------------------- */
+   =========================================================== */
 function initBrowsePage() {
-  if (document.body.id !== "browse") return;
-
-  const box = document.getElementById("browse-list");
+  const grid = document.getElementById("browse-list");
   const search = document.getElementById("browse-search-input");
+  if (!grid) return;
 
-  function render(list) {
-    box.innerHTML = "";
-    list.forEach(a => {
-      box.innerHTML += `
-        <div class="browse-card" onclick="location.href='episodes.html?id=${a.id}'">
-          <img src="${a.poster}">
-          <h3>${a.title}</h3>
-        </div>
-      `;
-    });
-  }
-
-  render(animeList);
+  // initial
+  renderBrowse(animeList);
 
   search.addEventListener("input", () => {
     const q = search.value.toLowerCase();
-    render(animeList.filter(x => x.title.toLowerCase().includes(q)));
+    const filtered = animeList.filter(a =>
+      a.title.toLowerCase().includes(q)
+    );
+    renderBrowse(filtered);
   });
 }
 
-/* ----------------------------------------------------
-   EPISODE PAGE (episodes.html)
----------------------------------------------------- */
-function initEpisodesPage() {
-  if (document.body.id !== "episodes") return;
+function renderBrowse(list) {
+  const grid = document.getElementById("browse-list");
+  if (!grid) return;
 
+  grid.innerHTML = "";
+
+  list.forEach(a => {
+    grid.innerHTML += `
+      <div class="browse-card" onclick="location.href='episodes.html?id=${a.id}'">
+        <img src="${a.poster}">
+        <h3>${a.title}</h3>
+      </div>
+    `;
+  });
+}
+
+/* ===========================================================
+   EPISODES PAGE (episodes.html)
+   =========================================================== */
+function initEpisodesPage() {
   const params = new URLSearchParams(location.search);
   const id = params.get("id");
-  const anime = animeList.find(a => a.id === id);
+  if (!id) return;
 
+  const anime = animeList.find(a => a.id === id);
   if (!anime) return;
 
-  document.getElementById("anime-title").innerText = anime.title;
-  document.getElementById("anime-description").innerText = anime.description;
+  // set header info
+  document.getElementById("anime-title").textContent = anime.title;
+  document.getElementById("anime-description").textContent = anime.description;
   document.getElementById("anime-poster").src = anime.poster;
 
   const seasonSelect = document.getElementById("season-select");
+  seasonSelect.innerHTML = "";
 
   anime.seasons.forEach((s, i) => {
     seasonSelect.innerHTML += `<option value="${i}">${s.name}</option>`;
   });
 
   seasonSelect.onchange = () =>
-    loadEpisodes(anime, parseInt(seasonSelect.value));
+    renderEpisodes(anime, parseInt(seasonSelect.value));
 
-  loadEpisodes(anime, 0);
+  renderEpisodes(anime, 0);
 }
 
-function loadEpisodes(anime, sIndex) {
+function renderEpisodes(anime, sIndex) {
   const list = document.getElementById("episode-list");
   list.innerHTML = "";
 
   anime.seasons[sIndex].episodes.forEach(ep => {
     list.innerHTML += `
       <div class="episode-card">
-        <div class="episode-info">
+        <div>
           <h3>${ep.title}</h3>
+          <p>Episode ${ep.number}</p>
         </div>
         <button class="btn-primary"
           onclick="location.href='watch.html?id=${anime.id}&s=${sIndex}&e=${ep.number}'">
-          Watch Now
+          Watch
         </button>
       </div>
     `;
   });
 }
-/* ----------------------------------------------------
+/* ===========================================================
    WATCH PAGE (watch.html)
----------------------------------------------------- */
+   =========================================================== */
 function initWatchPage() {
-  if (document.body.id !== "watch") return;
-
   const params = new URLSearchParams(location.search);
   const id = params.get("id");
   const s = parseInt(params.get("s"));
   const e = parseInt(params.get("e"));
 
   const anime = animeList.find(a => a.id === id);
-  const episode = anime.seasons[s].episodes.find(ep => ep.number === e);
+  if (!anime) return;
 
-  // SET TITLES
-  document.getElementById("watch-title").innerText =
-    `${anime.title} — Episode ${e}`;
+  const season = anime.seasons[s];
+  if (!season) return;
 
-  document.getElementById("watch-subtitle").innerText =
-    anime.seasons[s].name;
+  const ep = season.episodes.find(x => x.number === e);
+  if (!ep) return;
 
-  // SERVER BUTTONS
-  const box = document.getElementById("server-list");
-  box.innerHTML = "";
+  // META
+  document.getElementById("watch-title").textContent = `${anime.title} – Episode ${e}`;
+  document.getElementById("watch-subtitle").textContent = season.name;
 
-  episode.watch_servers.forEach(server => {
-    box.innerHTML += `
-      <button class="btn-primary server-btn"
-        onclick="changeServer('${server.url}')">
-        ${server.name}
-      </button>`;
+  // SERVERS
+  const serverList = document.getElementById("server-list");
+  serverList.innerHTML = "";
+
+  ep.stream_servers.forEach((srv, idx) => {
+    serverList.innerHTML += `
+      <button class="btn-primary small-btn" onclick="loadServer('${srv.url}')">
+        ${srv.name}
+      </button>
+    `;
   });
 
-  // LOAD DEFAULT SERVER
-  document.getElementById("video-player").src =
-    episode.watch_servers[0].url;
+  // Load first server by default
+  if (ep.stream_servers[0]) {
+    loadServer(ep.stream_servers[0].url);
+  }
 
-  /* -------- NEXT / PREVIOUS EPISODE ---------- */
+  // NEXT & PREV
   const nextBtn = document.getElementById("next-ep");
   const prevBtn = document.getElementById("prev-ep");
 
-  nextBtn.onclick = () => goToEpisode(anime, s, e + 1);
-  prevBtn.onclick = () => goToEpisode(anime, s, e - 1);
+  prevBtn.onclick = () => {
+    if (e > 1) {
+      location.href = `watch.html?id=${id}&s=${s}&e=${e - 1}`;
+    }
+  };
 
-  // SET DOWNLOAD LINK
-  document.getElementById("download-btn").href =
-    `download.html?id=${id}&s=${s}&e=${e}`;
+  nextBtn.onclick = () => {
+    const epCount = season.episodes.length;
+    if (e < epCount) {
+      location.href = `watch.html?id=${id}&s=${s}&e=${e + 1}`;
+    }
+  };
+
+  // DOWNLOAD button redirect
+  document.getElementById("download-btn").onclick = () => {
+    location.href = `download.html?id=${id}&s=${s}&e=${e}`;
+  };
 }
 
-function changeServer(url) {
+function loadServer(url) {
   document.getElementById("video-player").src = url;
 }
 
-function goToEpisode(anime, s, epNum) {
-  const exists = anime.seasons[s].episodes.find(x => x.number === epNum);
-  if (!exists) return;
-  location.href = `watch.html?id=${anime.id}&s=${s}&e=${epNum}`;
-}
 
-/* ----------------------------------------------------
+/* ===========================================================
    DOWNLOAD PAGE (download.html)
----------------------------------------------------- */
+   =========================================================== */
 function initDownloadPage() {
-  if (document.body.id !== "download") return;
-
   const params = new URLSearchParams(location.search);
   const id = params.get("id");
   const s = parseInt(params.get("s"));
   const e = parseInt(params.get("e"));
 
   const anime = animeList.find(a => a.id === id);
-  const episode = anime.seasons[s].episodes.find(ep => ep.number === e);
+  if (!anime) return;
 
-  document.getElementById("download-title").innerText =
+  const season = anime.seasons[s];
+  const ep = season.episodes.find(x => x.number === e);
+
+  document.getElementById("download-title").textContent =
     `${anime.title} – Episode ${e}`;
+  document.getElementById("download-subtitle").textContent =
+    season.name;
 
-  document.getElementById("download-subtitle").innerText =
-    anime.seasons[s].name;
+  const buttonsBox = document.getElementById("download-buttons");
+  buttonsBox.innerHTML = "";
 
-  const timerEl = document.getElementById("download-timer");
-  const buttonBox = document.getElementById("download-buttons");
+  ep.download_servers.forEach(srv => {
+    buttonsBox.innerHTML += `
+      <a class="btn-primary" href="${srv.url}" target="_blank">${srv.name}</a>
+    `;
+  });
 
-  let left = 10;
-  timerEl.innerText = `Please wait ${left} seconds…`;
+  startCountdown();
+}
 
-  const countdown = setInterval(() => {
-    left--;
-    timerEl.innerText = `Please wait ${left} seconds…`;
+function startCountdown() {
+  let sec = 10;
+  const timer = document.getElementById("download-timer");
+  const box = document.getElementById("download-buttons");
 
-    if (left <= 0) {
-      clearInterval(countdown);
+  const tick = setInterval(() => {
+    sec--;
+    timer.textContent = `Please wait ${sec} seconds…`;
 
-      timerEl.innerText = "Your download is ready!";
-      buttonBox.style.display = "block";
-
-      buttonBox.innerHTML = "";
-
-      episode.download_servers.forEach(d => {
-        buttonBox.innerHTML += `
-          <a class="btn-primary download-btn" href="${d.url}">
-            ${d.name}
-          </a>`;
-      });
+    if (sec <= 0) {
+      clearInterval(tick);
+      timer.style.display = "none";
+      box.style.display = "block";
     }
   }, 1000);
 }
 
-/* ----------------------------------------------------
+
+/* ===========================================================
    ADMIN PAGE (admin.html)
----------------------------------------------------- */
+   =========================================================== */
+let adminAnimeData = [];
+
 function initAdminPage() {
-  if (document.body.id !== "admin") return;
+  adminAnimeData = animeList;
 
-  setTimeout(refreshAnimeDropdowns, 500);
+  fillAnimeDropdowns();
 }
 
-// Refresh season dropdown when anime changes
-document.addEventListener("change", (e) => {
-  if (e.target.id === "episode-anime-select") {
-    refreshSeasonDropdown();
+function fillAnimeDropdowns() {
+  const sel1 = document.getElementById("season-anime-select");
+  const sel2 = document.getElementById("episode-anime-select");
+
+  sel1.innerHTML = "";
+  sel2.innerHTML = "";
+
+  adminAnimeData.forEach(a => {
+    sel1.innerHTML += `<option value="${a.id}">${a.title}</option>`;
+    sel2.innerHTML += `<option value="${a.id}">${a.title}</option>`;
+  });
+
+  updateEpisodeSeasonDropdown();
+}
+
+function updateEpisodeSeasonDropdown() {
+  const animeId = document.getElementById("episode-anime-select").value;
+  const anime = adminAnimeData.find(a => a.id === animeId);
+
+  const seasonSel = document.getElementById("episode-season-select");
+  seasonSel.innerHTML = "";
+
+  if (!anime) return;
+
+  anime.seasons.forEach((s, i) => {
+    seasonSel.innerHTML += `<option value="${i}">${s.name}</option>`;
+  });
+}
+
+
+/* ===========================================================
+   ADD ANIME
+   =========================================================== */
+function addAnime() {
+  const title = document.getElementById("anime-title").value;
+  const id = document.getElementById("anime-id").value;
+  const poster = document.getElementById("anime-poster").value;
+  const desc = document.getElementById("anime-description").value;
+
+  if (!title || !id) {
+    alert("Title and ID required!");
+    return;
   }
-});
 
-/* ----------------------------------------------------
-   ADMIN — SAVE TO GITHUB (ready)
----------------------------------------------------- */
-async function saveToGitHub() {
-  const finalJSON = JSON.stringify(animeList, null, 2);
+  adminAnimeData.push({
+    id,
+    title,
+    poster,
+    description: desc,
+    popularity: 0,
+    trending: 0,
+    updated: Date.now(),
+    seasons: []
+  });
 
-  alert(
-    "animeData.json generated!\n\n" +
-    "Copy this JSON and update your GitHub file manually (or use GitHub API)."
-  );
-
-  console.log("FINAL JSON:", finalJSON);
+  alert("Anime Added!");
+  fillAnimeDropdowns();
 }
 
-/* ----------------------------------------------------
-   END OF SCRIPT
----------------------------------------------------- */
-console.log("Ares Anime script loaded successfully!");
+
+/* ===========================================================
+   ADD SEASON
+   =========================================================== */
+function addSeason() {
+  const animeId = document.getElementById("season-anime-select").value;
+  const anime = adminAnimeData.find(a => a.id === animeId);
+
+  const name = document.getElementById("season-name").value;
+
+  if (!name) {
+    alert("Season name required.");
+    return;
+  }
+
+  anime.seasons.push({
+    name,
+    episodes: []
+  });
+
+  alert("Season Added!");
+  fillAnimeDropdowns();
+}
+
+/* ===========================================================
+   ADD EPISODE
+   =========================================================== */
+function addEpisode() {
+  const animeId = document.getElementById("episode-anime-select").value;
+  const anime = adminAnimeData.find(a => a.id === animeId);
+
+  const sIndex = parseInt(document.getElementById("episode-season-select").value);
+
+  const epNum = parseInt(document.getElementById("ep-number").value);
+  const epTitle = document.getElementById("ep-title").value;
+
+  const filemoon = document.getElementById("stream-filemoon").value;
+  const streamtape = document.getElementById("stream-streamtape").value;
+  const streamgh = document.getElementById("stream-streamgh").value;
+
+  const dl_filemoon = document.getElementById("dl-filemoon").value;
+  const dl_streamgh = document.getElementById("dl-streamgh").value;
+
+  if (!epNum || !epTitle) {
+    alert("Episode number & title required!");
+    return;
+  }
+
+  anime.seasons[sIndex].episodes.push({
+    number: epNum,
+    title: epTitle,
+    stream_servers: [
+      ...(filemoon ? [{ name: "Filemoon", url: filemoon }] : []),
+      ...(streamtape ? [{ name: "StreamTape", url: streamtape }] : []),
+      ...(streamgh ? [{ name: "StreamGH", url: streamgh }] : [])
+    ],
+    download_servers: [
+      ...(dl_filemoon ? [{ name: "Filemoon DL", url: dl_filemoon }] : []),
+      ...(dl_streamgh ? [{ name: "StreamGH DL", url: dl_streamgh }] : [])
+    ]
+  });
+
+  alert("Episode Added!");
+}
+
+
+/* ===========================================================
+   SAVE TO GITHUB
+   =========================================================== */
+async function saveToGitHub() {
+  const owner = document.getElementById("github-owner").value;
+  const repo = document.getElementById("github-repo").value;
+  const branch = document.getElementById("github-branch").value;
+  const filePath = document.getElementById("github-file-path").value;
+  const token = document.getElementById("github-token").value;
+
+  if (!owner || !repo || !token) {
+    alert("GitHub details missing!");
+    return;
+  }
+
+  const apiURL = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`;
+
+  // GET existing file SHA
+  const getRes = await fetch(apiURL, {
+    headers: { Authorization: `Bearer ${token}` }
+  });
+
+  const getData = await getRes.json();
+  const sha = getData.sha;
+
+  // Encode new JSON
+  const newContent = btoa(unescape(encodeURIComponent(JSON.stringify(adminAnimeData, null, 2))));
+
+  // PUT request to overwrite file
+  const putRes = await fetch(apiURL, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      message: "Updated animeData via Ares Admin",
+      content: newContent,
+      sha,
+      branch
+    })
+  });
+
+  if (putRes.ok) {
+    alert("Uploaded to GitHub! Vercel will auto-deploy.");
+  } else {
+    alert("GitHub upload failed.");
+  }
+}
