@@ -1,83 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Ares Anime - Watch</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Ares Anime – Watch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="page-watch">
+
+<body id="watch" data-page="watch">
+
+  <!-- Galaxy BG -->
   <div class="stars"></div>
   <div class="stars2"></div>
 
-  <!-- Social bar (optional) -->
-  <script
-    type="text/javascript"
-    src="//pl28175335.effectivegatecpm.com/bf/f7/40/bff74014fab00afc7adbfb31359b1626.js">
-  </script>
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="logo">
+      <span class="logo-top">Ares</span>
+      <span class="logo-bottom">Anime</span>
+    </div>
 
-  <header class="site-header">
-    <div class="logo">Ares Anime</div>
     <nav class="nav">
       <a href="index.html" class="nav-link">Home</a>
+      <a href="browse.html" class="nav-link">Browse</a>
     </nav>
   </header>
 
-  <main class="content watch-layout">
-    <!-- TOP AD (banner) -->
-    <div class="ad-slot ad-top">
-      <script type="text/javascript">
-        atOptions = {
-          'key' : '1ca930ec4b20fce9334ce7973ff6dd40',
-          'format' : 'iframe',
-          'height' : 250,
-          'width' : 300,
-          'params' : {}
-        };
-      </script>
-      <script type="text/javascript"
-        src="//www.highperformanceformat.com/1ca930ec4b20fce9334ce7973ff6dd40/invoke.js">
-      </script>
-    </div>
+  <!-- MAIN -->
+  <main class="main-content watch-layout">
 
-    <section class="watch-section">
-      <h1 id="watch-title">Now Playing</h1>
+    <!-- META -->
+    <section class="watch-meta">
+      <h1 id="watch-title">Loading…</h1>
+      <p id="watch-subtitle"></p>
+    </section>
 
-      <div class="player-wrapper">
+    <!-- SERVER BUTTONS + PLAYER -->
+    <section class="watch-player">
+
+      <!-- SERVER BUTTONS -->
+      <div id="server-list" class="server-buttons">
+        <!-- buttons from script.js -->
+      </div>
+
+      <!-- VIDEO PLAYER -->
+      <div class="player-frame">
         <iframe
           id="video-player"
           src=""
           frameborder="0"
           allowfullscreen
-          allow="autoplay; fullscreen"
+          loading="lazy"
         ></iframe>
       </div>
 
-      <div class="watch-controls">
-        <button id="prev-ep" class="btn-secondary">⟵ Previous Episode</button>
-        <button id="next-ep" class="btn-secondary">Next Episode ⟶</button>
-        <a id="download-btn" class="btn-primary" href="#">
-          Download Episode
-        </a>
+      <!-- NEXT / PREVIOUS -->
+      <div class="next-prev">
+        <button id="prev-ep" class="btn-primary small-btn">Previous</button>
+        <button id="next-ep" class="btn-primary small-btn">Next</button>
+      </div>
+
+      <!-- DOWNLOAD BUTTON -->
+      <a id="download-btn" href="#" class="btn-primary download-btn">
+        Download Episode
+      </a>
+    </section>
+
+    <!-- DISCLAIMER -->
+    <section class="disclaimer-section">
+      <div class="disclaimer-card">
+        <h3>Disclaimer</h3>
+        <p>
+          Ares Anime does not host videos. All links are from third-party sources.  
+        </p>
       </div>
     </section>
 
-    <!-- BOTTOM AD (native) -->
-    <div class="ad-slot ad-bottom">
-      <script
-        async="async"
-        data-cfasync="false"
-        src="//pl28156526.effectivegatecpm.com/9fdbf75c26ef51a2b19dbf748cf83bef/invoke.js">
-      </script>
-      <div id="container-9fdbf75c26ef51a2b19dbf748cf83bef"></div>
-    </div>
   </main>
 
-  <footer class="site-footer">
-    <p>
-      Ares Anime does not host or upload any videos. We only index publicly available third-party streaming links.
-      All videos are hosted on external servers.
-    </p>
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <p>© 2025 Ares Anime</p>
   </footer>
 
   <script src="script.js"></script>
