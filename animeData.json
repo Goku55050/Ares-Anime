@@ -122,6 +122,62 @@
                 "url": "https://hglink.to/download/4sk9ahurk9iq"
               }
             ]
+          },
+          {
+            "number": 5,
+            "title": "Curse Womb Must Die -II",
+            "stream_servers": [
+              {
+                "name": "Filemoon",
+                "url": "https://filemoon.art/e/ex8j0mhouk9f"
+              },
+              {
+                "name": "StreamTape",
+                "url": "https://streamtape.com/e/LL00e2LLKoCRG9Z"
+              },
+              {
+                "name": "StreamGH",
+                "url": "https://hglink.to/e/bdm28i23rggu"
+              }
+            ],
+            "download_servers": [
+              {
+                "name": "Filemoon DL",
+                "url": "https://filemoon.art/download/ex8j0mhouk9f"
+              },
+              {
+                "name": "StreamGH DL",
+                "url": "https://hglink.to/download/bdm28i23rggu"
+              }
+            ]
+          },
+          {
+            "number": 6,
+            "title": "After Rain",
+            "stream_servers": [
+              {
+                "name": "Filemoon",
+                "url": "https://filemoon.art/e/j4263v1rmr8q"
+              },
+              {
+                "name": "StreamTape",
+                "url": "https://streamtape.com/e/PZGAyGyLGlsWvd"
+              },
+              {
+                "name": "StreamGH",
+                "url": "https://hglink.to/e/rzobusatmqn5"
+              }
+            ],
+            "download_servers": [
+              {
+                "name": "Filemoon DL",
+                "url": "https://filemoon.art/download/j4263v1rmr8q"
+              },
+              {
+                "name": "StreamGH DL",
+                "url": "https://hglink.to/e/rzobusatmqn5"
+              }
+            ]
           }
         ]
       }
