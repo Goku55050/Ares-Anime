@@ -14,20 +14,74 @@
           {
             "number": 1,
             "title": "Ryomen Sukuna",
-            "stream_servers": [],
-            "download_servers": []
+            "stream_servers": [
+              {
+                "name": "Filemoon",
+                "url": "https://filemoon.to/e/5rnc79xmzcxy/AresAnime_JJK_E01_Hindi.mp4"
+              },
+              {
+                "name": "StreamGH",
+                "url": "https://hglink.to/e/zabiengnlhza"
+              }
+            ],
+            "download_servers": [
+              {
+                "name": "Filemoon DL",
+                "url": "https://filemoon.to/download/5rnc79xmzcxy/AresAnime_JJK_E01_Hindi.mp4"
+              },
+              {
+                "name": "StreamGH DL",
+                "url": "https://hglink.to/download/zabiengnlhza"
+              }
+            ]
           },
           {
             "number": 2,
             "title": "For Myself",
-            "stream_servers": [],
-            "download_servers": []
+            "stream_servers": [
+              {
+                "name": "Filemoon",
+                "url": "https://filemoon.to/e/3tk123l1oeju/AresAnime_JJK_E02_Hindi.mp4"
+              },
+              {
+                "name": "StreamGH",
+                "url": "https://hglink.to/e/apu5tm62i1eq"
+              }
+            ],
+            "download_servers": [
+              {
+                "name": "Filemoon DL",
+                "url": "https://filemoon.to/download/3tk123l1oeju/AresAnime_JJK_E02_Hindi.mp4"
+              },
+              {
+                "name": "StreamGH DL",
+                "url": "https://hglink.to/download/apu5tm62i1eq"
+              }
+            ]
           },
           {
             "number": 3,
             "title": "Girl of Steel",
-            "stream_servers": [],
-            "download_servers": []
+            "stream_servers": [
+              {
+                "name": "Filemoon",
+                "url": "https://filemoon.to/e/9p89l186yo55/JJK_S01E03_HindiOnly.mp4"
+              },
+              {
+                "name": "StreamGH",
+                "url": "https://hglink.to/e/0x8vziuvmlpr"
+              }
+            ],
+            "download_servers": [
+              {
+                "name": "Filemoon DL",
+                "url": "https://filemoon.to/download/9p89l186yo55/JJK_S01E03_HindiOnly.mp4"
+              },
+              {
+                "name": "StreamGH DL",
+                "url": "https://hglink.to/download/0x8vziuvmlpr"
+              }
+            ]
           },
           {
             "number": 4,
