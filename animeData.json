@@ -7,7 +7,157 @@
     "popularity": 0,
     "trending": 0,
     "updated": 1764784741875,
-    "seasons": []
+    "seasons": [
+      {
+        "name": "Season 1",
+        "episodes": [
+          {
+            "number": 1,
+            "title": "Ryomen Sukuna",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 2,
+            "title": "For Myself",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 3,
+            "title": "Girl of Steel",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 4,
+            "title": "Curse Womb Must Die",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 5,
+            "title": "Curse Womb Must Die - 2",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 6,
+            "title": "After Rain",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 7,
+            "title": "Assault",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 8,
+            "title": "Boredom",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 9,
+            "title": "Small Fry and Reverse Retribution",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 10,
+            "title": "Idle Transfiguration",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 11,
+            "title": "Narrow-minded",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 12,
+            "title": "To You, Someday",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 13,
+            "title": "Tomorrow",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 14,
+            "title": "Kyoto Sister School Exchange Event - Group Battle 0",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 15,
+            "title": "Kyoto Sister School Exchange Event - Group Battle 1",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 16,
+            "title": "Kyoto Sister School Exchange Event - Group Battle 2",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 17,
+            "title": "Kyoto Sister School Exchange Event - Group Battle 3",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 18,
+            "title": "Sage",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 19,
+            "title": "Black Flash",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 20,
+            "title": "Nonstandard",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 21,
+            "title": "Jujutsu Koshien",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 22,
+            "title": "The Origin of Blind Obedience",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 23,
+            "title": "The Origin of Blind Obedience - 2",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 24,
+            "title": "Accomplices",
+            "stream_servers": [],
+            "download_servers": []
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "Cm",
