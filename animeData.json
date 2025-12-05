@@ -780,6 +780,90 @@
     "popularity": 0,
     "trending": 0,
     "updated": 1764933267500,
-    "seasons": []
+    "seasons": [
+      {
+        "name": "Season 1",
+        "episodes": [
+          {
+            "number": 1,
+            "title": "The End of the Beginning and the Beginning of the End",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 2,
+            "title": "Reunion with the Witch",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 3,
+            "title": "Starting Life from Zero in Another World",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 4,
+            "title": "The Happy Roswaal Mansion Family",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 5,
+            "title": "The Sound of Chains",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 6,
+            "title": "The Meaning of Courage",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 7,
+            "title": "Fanatical Princess",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 8,
+            "title": "Self-Proclaimed Knight Natsuki Subaru",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 9,
+            "title": "The Sickness Called Despair",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 10,
+            "title": "The Greed of a Pig",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 11,
+            "title": "From Zero",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 12,
+            "title": "Wilhelm van Astrea",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 13,
+            "title": "That’s All This Story Is About",
+            "stream_servers": [],
+            "download_servers": []
+          }
+        ]
+      }
+    ]
   }
 ]
