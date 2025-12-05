@@ -396,6 +396,149 @@
             ]
           }
         ]
+      },
+      {
+        "name": "Season 2",
+        "episodes": [
+          {
+            "number": 1,
+            "title": "Hidden Inventory",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 2,
+            "title": "Hidden Inventory 2",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 3,
+            "title": "Hidden Inventory 3",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 4,
+            "title": "Hidden Inventory 4",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 5,
+            "title": "Premature Death",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 6,
+            "title": "It's Like That",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 7,
+            "title": "Evening Festival",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 8,
+            "title": "Shibuya Incident",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 9,
+            "title": "Shibuya Incident - Gate, Open",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 10,
+            "title": "Pandemonium",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 11,
+            "title": "Seance",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 12,
+            "title": "Dull Knife",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 13,
+            "title": "Red Scale",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 14,
+            "title": "Fluctuations",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 15,
+            "title": "Fluctuations, Part 2",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 16,
+            "title": "Thunderclap",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 17,
+            "title": "Thunderclap, Part 2",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 18,
+            "title": "Right and Wrong",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 19,
+            "title": "Right and Wrong, Part 2",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 20,
+            "title": "Right and Wrong - Part 3",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 21,
+            "title": "Metamorphosis",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 22,
+            "title": "Metamorphosis, Part 2",
+            "stream_servers": [],
+            "download_servers": []
+          },
+          {
+            "number": 23,
+            "title": "Shibuya Incident - Gate, Close",
+            "stream_servers": [],
+            "download_servers": []
+          }
+        ]
       }
     ]
   },
