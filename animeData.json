@@ -1431,5 +1431,20 @@
         ]
       }
     ]
+  },
+  {
+    "id": "sl",
+    "title": "Solo leveling (Hindi dubbed)",
+    "poster": "https://i.postimg.cc/W4Nk4cqd/season-1.jpg",
+    "description": "In a world where \"Gates\" connect our dimension to a realm of monsters, certain humans have awakened supernatural abilities to fight them. These people are known as Hunters. \nSung Jinwoo is an E-rank hunter, infamously dubbed the \"World's Weakest Hunter\". Barely surviving low-level raids to pay his mother's medical bills, he is brutally slaughtered in a high-ranking \"Double Dungeon\". Just before his death, he is chosen by a mysterious program called the System as its sole \"Player\". \nThis System grants him a unique RPG-like ability: he can level up his strength and skills through daily quests and solo dungeon raids—a feat impossible for other hunters, whose powers are fixed from the moment they awaken. Jinwoo embarks on a journey to uncover the secrets of the dungeons and the true source of his absolute power.",
+    "popularity": 0,
+    "trending": 0,
+    "updated": 1765985382497,
+    "seasons": [
+      {
+        "name": "Season 1",
+        "episodes": []
+      }
+    ]
   }
 ]
