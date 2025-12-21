@@ -1639,5 +1639,20 @@
         ]
       }
     ]
+  },
+  {
+    "id": "dbs",
+    "title": "Dragon Ball Super (Hindi Dubbed)",
+    "poster": "https://i.postimg.cc/VsFGzJRW/MV5BYTgy-Mz-A5Mj-Et-NDY3Ny00ZDky-LWJh-Yz-Et-Yz-I2Nzk5Mzc3ZDk1Xk-Ey-Xk-Fqc-Gc-V1.jpg",
+    "description": "The story follows Goku as he encounters Beerus, the God of Destruction, and attains the power of a Super Saiyan God [2, 3]. As the series progresses, Goku and his allies travel across the multiverse to battle powerful foes and compete in high-stakes tournaments, such as the Tournament of Power, to ensure the survival of their universe [2, 4].",
+    "popularity": 0,
+    "trending": 0,
+    "updated": 1766337200384,
+    "seasons": [
+      {
+        "name": "Season 1",
+        "episodes": []
+      }
+    ]
   }
 ]
